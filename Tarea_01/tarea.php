@@ -22,8 +22,8 @@ e. Creación de un Array:
 $nombre = "Pedro_Zambonino";
 $edad = 35;
 $valor = 9.88;
-$es_estudiante = false;
-$lista=array("$nombre","$edad","$valor","$es_estudiante");
+$es_estudiante = true;
+$lista=array("$nombre","$edad","$valor","$es_estudiante","Latacunga","casado");
 $num1=123;
 $num2= 234;
 $suma =($num1+$num2);
@@ -49,7 +49,7 @@ echo ("suma es = ". $suma. "");
 echo "<br>  "."<br>";
 echo ("resta es = ". $resta. "");
 echo "<br>  "."<br>";
-echo ("la multiplicacion es = " . $multiplicar. "");
+echo ("la multiplicacion por 3 es = " . $multiplicar. "");
 echo "<br>  "."<br>";
 
 
@@ -60,7 +60,7 @@ echo $MENSAJE_COMPLETO;
 echo "<br>  "."<br>";
 
 $total=strlen($mensaje);
-echo "La longitud del mensaje es: $total\n";
+echo "La longitud del mensaje Estudiante es: $total\n";
 echo "<br>  "."<br>";
 if ($edad >=18 ){
     echo "Es mayor de edad $edad\n";
@@ -69,7 +69,11 @@ else{
     echo "Es menor de edad";
 }
 echo "<br>  "."<br>";
+
+echo "El Array en la posicion 2 es: ".$lista[1];
+echo "<br>  "."<br>";
 foreach ($lista as $lista) {
     echo $lista . "<br>";
 }
+
 

@@ -40,6 +40,32 @@ CREATE TABLE IF NOT EXISTS `prueba_AW`.`Participante` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `prueba_AW`.`inscripciones`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `prueba_AW`.`inscripciones` (
+  `idinscripciones` INT NOT NULL AUTO_INCREMENT,
+  `participante` VARCHAR(45) NOT NULL,
+  `taller` VARCHAR(45) NOT NULL,
+  `Talleres_Talleres_id` INT NOT NULL,
+  `Participante_idParticipante` INT NOT NULL,
+  `Fecha_matricula` DATE NOT NULL,
+  PRIMARY KEY (`idinscripciones`),
+  INDEX `fk_inscripciones_Talleres_idx` (`Talleres_Talleres_id` ASC) ,
+  INDEX `fk_inscripciones_Participante1_idx` (`Participante_idParticipante` ASC),
+  CONSTRAINT `fk_inscripciones_Talleres`
+    FOREIGN KEY (`Talleres_Talleres_id`)
+    REFERENCES `prueba_AW`.`Talleres` (`Talleres_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_inscripciones_Participante1`
+    FOREIGN KEY (`Participante_idParticipante`)
+    REFERENCES `prueba_AW`.`Participante` (`idParticipante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

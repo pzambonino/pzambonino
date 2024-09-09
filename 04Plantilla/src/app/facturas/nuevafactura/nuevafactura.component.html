@@ -9,10 +9,10 @@
       </h3>
     </div>
     <div class="row">
-      <form [formGroup]="frm_factura" novalidate>
+      <form [formGroup]="frm_factura" novalidate (ngSubmit)="grabar()">
         <div class="form-group mb-3">
           <label class="form-label">Cliente</label>
-          <select class="form-control">
+          <select class="form-control" (change)="cambio($event)">
             <option>Seleccione una opcion</option>
             @for (cliente of listaClientes; track $index) {
               <option value="{{ cliente.idCliente }}">{{ cliente.Nombres }}</option>

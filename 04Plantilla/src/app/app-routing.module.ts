@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Project import
 import { AdminComponent } from './theme/layouts/admin-layout/admin-layout.component';
 import { GuestComponent } from './theme/layouts/guest/guest.component';
-//import { usuariosGuardGuard } from './Guards/usuarios-guard.guard';
+import { usuariosGuardGuard } from './Guards/usuarios-guard.guard';
 
 const routes: Routes = [
   {
@@ -15,11 +15,14 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: '/dashboard/default',
-        pathMatch: 'full'
+        pathMatch: 'full',
+      // canActivate: [usuariosGuardGuard]
       },
       {
         path: 'dashboard/default',
-        loadComponent: () => import('./demo/default/dashboard/dashboard.component').then((c) => c.DefaultComponent)
+        loadComponent: () => import('./demo/default/dashboard/dashboard.component').then((c) => c.DefaultComponent),
+        canActivate: [usuariosGuardGuard]
+        
       },
       {
         path: 'typography',
@@ -36,32 +39,32 @@ const routes: Routes = [
       {
         path: 'proveedores',
         loadComponent: () => import('./proveedores/proveedores.component').then((m) => m.ProveedoresComponent),
-  //      canActivate: [usuariosGuardGuard]
+        canActivate: [usuariosGuardGuard]
       },
       {
         path: 'nuevoproveedor',
         loadComponent: () => import('./proveedores/nuevoproveedor/nuevoproveedor.component').then((m) => m.NuevoproveedorComponent),
-    //    canActivate: [usuariosGuardGuard]
+        canActivate: [usuariosGuardGuard]
       },
       {
         path: 'editarproveedor/:id',
         loadComponent: () => import('./proveedores/nuevoproveedor/nuevoproveedor.component').then((m) => m.NuevoproveedorComponent),
-      //  canActivate: [usuariosGuardGuard]
+        canActivate: [usuariosGuardGuard]
       },
       {
         path: 'clientes',
         loadComponent: () => import('./clientes/clientes.component').then((m) => m.ClientesComponent),
-        //canActivate: [usuariosGuardGuard]
+        canActivate: [usuariosGuardGuard]
       },
       {
         path: 'nuevocliente',
         loadComponent: () => import('./clientes/nuevocliente/nuevocliente.component').then((m) => m.NuevoclienteComponent),
-        //canActivate: [usuariosGuardGuard]
+        canActivate: [usuariosGuardGuard]
       },
       {
         path: 'editarcliente/:idCliente',
         loadComponent: () => import('./clientes/nuevocliente/nuevocliente.component').then((m) => m.NuevoclienteComponent),
-        //canActivate: [usuariosGuardGuard]
+        canActivate: [usuariosGuardGuard]
       },
       {
         path: 'editarfactura/:id',
@@ -70,12 +73,42 @@ const routes: Routes = [
       {
         path: 'nuevafactura',
         loadComponent: () => import('./facturas/nuevafactura/nuevafactura.component').then((m) => m.NuevafacturaComponent),
-       // canActivate: [usuariosGuardGuard]
+        canActivate: [usuariosGuardGuard]
       },
       {
         path: 'facturas',
         loadComponent: () => import('./facturas/facturas.component').then((m) => m.FacturasComponent)
-      }
+      },
+      {
+        path: 'unidadmedida',
+        loadComponent: () => import('./unidadmedida/unidadmedida.component').then((m) => m.UnidadmedidaComponent),
+        canActivate: [usuariosGuardGuard]
+      },
+      {
+        path: 'nuevaunidadmedida',
+        loadComponent: () => import('./unidadmedida/nuevaunidadmedida/nuevaunidadmedida.component').then((m) => m.NuevaunidadmedidaComponent),
+        canActivate: [usuariosGuardGuard]
+      },
+      {
+        path: 'editarunidadmedida/:id',
+        loadComponent: () => import('./unidadmedida/nuevaunidadmedida/nuevaunidadmedida.component').then((m) => m.NuevaunidadmedidaComponent),
+        canActivate: [usuariosGuardGuard]
+      },
+      {
+        path: 'producto',
+        loadComponent: () => import('./producto/producto.component').then((m) => m.ProductoComponent),
+        //canActivate: [usuariosGuardGuard]
+      },
+      {
+        path: 'nuevoproducto',
+        loadComponent: () => import('./producto/nuevoproducto/nuevoproducto.component').then((m) => m.NuevoproductoComponent),
+       // canActivate: [usuariosGuardGuard]
+      },
+      {
+        path: 'editarproducto/:id',
+        loadComponent: () => import('./producto/nuevoproducto/nuevoproducto.component').then((m) => m.NuevoproductoComponent),
+        //canActivate: [usuariosGuardGuard]
+      },
     ]
   },
   {
@@ -84,6 +117,10 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
+        loadComponent: () => import('./demo/authentication/login/login.component')
+      },
+      {
+        path: 'login/:id',
         loadComponent: () => import('./demo/authentication/login/login.component')
       },
       {

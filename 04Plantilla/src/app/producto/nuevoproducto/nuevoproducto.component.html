@@ -1,0 +1,97 @@
+<div class="card my-5">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <h3 class="mb-0">
+          {{ titulo }}
+          <!--Interpolacion
+          sirve para enviar datos desde el .ts hacia el html-->
+          
+        </h3>
+      </div>
+      <div class="row">
+        <div class="form-group mb-3">
+          <label class="form-label" for="company">Codigo de barras</label>
+          <input type="text" [value]="titulo" [(ngModel)]="Cod_Barras" class="form-control" placeholder="Company" />
+        </div>
+        <div class="form-group mb-3">
+          <label class="form-label" for="emailAddress">Nombre de Producto</label>
+          <input type="email" class="form-control" [(ngModel)]="Nombre_Producto" id="emailAddress" placeholder="Email Address" />
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label" for="emailAddress">Graba_IVA</label>
+            <input type="email" class="form-control" [(ngModel)]="Graba_IVA" id="emailAddress" placeholder="Email Address" />
+          </div>
+        <div class="form-group mb-3">
+          <label class="form-label" for="password">Graba IVA</label>
+          <input type="number" class="form-control" [(ngModel)]="Graba_IVA" />
+        </div>
+   
+  
+        <div class="d-grid mt-3">
+          <button type="button" (click)="grabar()" class="btn btn-primary">Create Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- 
+<div class="card my-5">
+<div class="card-body">
+  <div class="d-flex justify-content-between align-items-end mb-4">
+    <h3 class="mb-0">
+      {{ titulo }}
+       Interpolacion
+        sirve para enviar datos desde el .ts hacia el html
+        -->
+   <!-- </h3>
+  </div>
+  <form [formGroup]="frm_Producto" (ngSubmit)="grabar()">
+    <div class="row">
+      <div class="form-group mb-3">
+        <label class="form-label" for="Cod_Barras">Cod_Barras</label>
+        <input formControlName="Cod_Barras" type="text" class="form-control" id="Cod_Barras" placeholder="Ingrese la cedula Cedula" />
+        <div *ngIf="frm_Producto.get('Cod_Barras').invalid && frm_Producto.get('Cod_Barras').touched">
+          <small *ngIf="frm_Producto.get('Cod_Barras').hasError('required')" style="color: red">La cedula es requerida</small>
+          
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label class="form-label" for="Nombre_Producto">Nombre_Producto</label>
+        <input formControlName="Nombre_Producto" type="text" class="form-control" id="Nombre_Producto" placeholder="Ingrese los nombres de producto" />
+        <div *ngIf="frm_Producto.get('Nombre_Producto').invalid && frm_Producto.get('Nombre_Producto').touched">
+          <small *ngIf="frm_Producto.get('Nombre_Producto').hasError('required')" style="color: red">Los nombres son requeridos</small>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label class="form-label" for="Graba_IVA">Graba_IVA</label>
+        <input type="text" formControlName="Graba_IVA" class="form-control" id="Graba_IVA" />
+        <div *ngIf="frm_Producto.get('Graba_IVA').invalid && frm_Producto.get('Graba_IVA').touched">
+          <small *ngIf="frm_Producto.get('Graba_IVA').hasError('required')" style="color: red">El telefono es requerido</small>
+        </div>
+      </div>
+      
+      <div class="d-grid mt-3">
+        <button type="submit" class="btn btn-primary" [disabled]="frm_Producto.invalid">Grabar</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>-->
+  <!--
+  IMPORTAR => FORMSMODULE  APP.MODULE.TS ||  NUEVOPROVEEDOR.COMPONENT.TS
+  
+  
+  
+  
+  
+  INTRPOLACION => DESDE EL TS AL HTML
+  {{ }} 
+  EVENTOS => EJECUTAR FUNCIONES EN EL TS
+  ()
+  DATA BINDING => DESDE EL HTML AL TS
+  []
+  TWO WAY BIDING => ENVIADO DE DATOS DESDE EL HTML AL TS Y DESDE EL TS AL HTML
+  [()]
+  -->
+  

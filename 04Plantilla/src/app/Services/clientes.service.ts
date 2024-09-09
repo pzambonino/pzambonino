@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ClientesService {
   apiurl = 'http://localhost/sexto/03MVC/controllers/cliente.controllers.php?op=';
-  //apiurl = 'http://localhost/sexto/Proyectos/03MVC/controllers/clientes.controller.php?op=';
+  //apiurl = 'http://localhost/sexto/Proyectos/03MVC/controllers/cliente.controller.php?op=';
   constructor(private lector: HttpClient) {}
 
   buscar(texto: string): Observable<ICliente> {

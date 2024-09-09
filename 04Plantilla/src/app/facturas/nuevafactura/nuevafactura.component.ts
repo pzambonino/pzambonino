@@ -24,7 +24,7 @@ export class NuevafacturaComponent implements OnInit {
 
   ///////
   constructor(
-    private clienteServicios: ClientesService,
+    private clietesServicios: ClientesService,
     private facturaService: FacturaService,
     private navegacion: Router
   ) {}
@@ -38,10 +38,10 @@ export class NuevafacturaComponent implements OnInit {
       Cliente_idCliente: new FormControl('', Validators.required)
     });
 
-    this.clienteServicios.todos().subscribe({
+    this.clietesServicios.todos().subscribe({
       next: (data) => {
         this.listaClientes = data;
-        //this.listaClientesFiltrada = data;
+        this.listaClientesFiltrada = data;
       },
       error: (e) => {
         console.log(e);
@@ -56,6 +56,7 @@ export class NuevafacturaComponent implements OnInit {
       Sub_total_iva: this.frm_factura.get('Sub_total_iva')?.value,
       Valor_IVA: this.frm_factura.get('Valor_IVA')?.value,
       Cliente_idCliente: this.frm_factura.get('Cliente_idCliente')?.value
+      
     };
 
     this.facturaService.insertar(factura).subscribe((respuesta) => {

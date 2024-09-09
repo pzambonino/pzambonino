@@ -93,6 +93,22 @@ export const NavigationItems: NavigationItem[] = [
         classes: 'nav-item',
         url: '/facturas',
         icon: 'ant-design'
+      },// facturas
+      {
+        id: 'tabler',
+        title: 'Unidad de Medida',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/unidadmedida',
+        icon: 'ant-design'
+      },
+      {
+        id: 'tabler',
+        title: 'producto',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/producto',
+        icon: 'ant-design'
       }
     ]
   },

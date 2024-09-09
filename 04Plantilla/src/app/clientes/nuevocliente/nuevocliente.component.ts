@@ -32,7 +32,9 @@ export class NuevoclienteComponent implements OnInit {
   ngOnInit(): void {
     this.idCliente = parseInt(this.ruta.snapshot.paramMap.get('idCliente'));
     if (this.idCliente > 0) {
-      this.clienteServicio.uno(this.idCliente).subscribe((uncliente) => {
+      this.clienteServicio
+      .uno(this.idCliente)
+      .subscribe((uncliente) => {
         this.frm_Cliente.controls['Nombres'].setValue(uncliente.Nombres);
         this.frm_Cliente.controls['Direccion'].setValue(uncliente.Direccion);
         this.frm_Cliente.controls['Telefono'].setValue(uncliente.Telefono);

@@ -39,7 +39,7 @@ switch ($_GET["op"]) {
         break;
 
     case 'insertar': // Procedimiento para insertar una nueva factura
-        if (!isset($_POST["Fecha"]) || !isset($_POST["Sub_total"]) || !isset($_POST["Sub_total_iva"]) || !isset($_POST["Valor_IVA"]) || !isset($_POST["Clientes_idClientes"])) {
+        if (!isset($_POST["Fecha"]) || !isset($_POST["Sub_total"]) || !isset($_POST["Sub_total_iva"]) || !isset($_POST["Valor_IVA"]) || !isset($_POST["Cliente_idCliente"])) {
             echo json_encode(["error" => "Missing required parameters."]);
             exit();
         }
@@ -48,15 +48,15 @@ switch ($_GET["op"]) {
         $Sub_total = $_POST["Sub_total"];
         $Sub_total_iva = $_POST["Sub_total_iva"];
         $Valor_IVA = $_POST["Valor_IVA"];
-        $Clientes_idClientes = intval($_POST["Clientes_idClientes"]);
+        $Cliente_idCliente = intval($_POST["Cliente_idCliente"]);
 
         $datos = array();
-        $datos = $factura->insertar($Fecha, $Sub_total, $Sub_total_iva, $Valor_IVA, $Clientes_idClientes);
+        $datos = $factura->insertar($Fecha, $Sub_total, $Sub_total_iva, $Valor_IVA, $Cliente_idCliente);
         echo json_encode($datos);
         break;
 
     case 'actualizar': // Procedimiento para actualizar una factura existente
-        if (!isset($_POST["idFactura"]) || !isset($_POST["Fecha"]) || !isset($_POST["Sub_total"]) || !isset($_POST["Sub_total_iva"]) || !isset($_POST["Valor_IVA"]) || !isset($_POST["Clientes_idClientes"])) {
+        if (!isset($_POST["idFactura"]) || !isset($_POST["Fecha"]) || !isset($_POST["Sub_total"]) || !isset($_POST["Sub_total_iva"]) || !isset($_POST["Valor_IVA"]) || !isset($_POST["Cliente_idCliente"])) {
             echo json_encode(["error" => "Missing required parameters."]);
             exit();
         }
@@ -66,10 +66,10 @@ switch ($_GET["op"]) {
         $Sub_total = $_POST["Sub_total"];
         $Sub_total_iva = $_POST["Sub_total_iva"];
         $Valor_IVA = $_POST["Valor_IVA"];
-        $Clientes_idClientes = intval($_POST["Clientes_idClientes"]);
+        $Cliente_idCliente = intval($_POST["Cliente_idCliente"]);
 
         $datos = array();
-        $datos = $factura->actualizar($idFactura, $Fecha, $Sub_total, $Sub_total_iva, $Valor_IVA, $Clientes_idClientes);
+        $datos = $factura->actualizar($idFactura, $Fecha, $Sub_total, $Sub_total_iva, $Valor_IVA, $Cliente_idCliente);
         echo json_encode($datos);
         break;
 

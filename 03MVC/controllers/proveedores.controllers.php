@@ -1,6 +1,15 @@
 <?php
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+$method = $_SERVER["REQUEST_METHOD"];
+if($method == "OPTIONS") {
+    die();
+}
 require_once('../models/proveedores.model.php');
-//error_reporting(0);
+error_reporting(0);
 
 $proveedores = new Proveedores;
 
@@ -26,10 +35,10 @@ switch($_GET["op"]){
         $Direccion = $_POST["Direccion"];
         $Telefono = $_POST["Telefono"];
         $Contacto_Empresa = $_POST["Contacto_Empresa"];
-        $Teleofno_Contacto = $_POST["Teleofno_Contacto"];
+        $Telefono_Contacto = $_POST["Telefono_Contacto"];
 
         $datos = array();
-        $datos = $proveedores->insertar($Nombre_Empresa, $Direccion, $Telefono, $Contacto_Empresa, $Teleofno_Contacto);
+        $datos = $proveedores->insertar($Nombre_Empresa, $Direccion, $Telefono, $Contacto_Empresa, $Telefono_Contacto);
         echo json_encode($datos);
 
     break;
@@ -42,7 +51,7 @@ switch($_GET["op"]){
         $Contacto_Empresa = $_POST["Contacto_Empresa"];
         $Telefono_Contacto = $_POST["Telefono_Contacto"];
         $datos = array();
-        $datos = $proveedores->actualizar($idProveedores, $Nombre_Empresa, $Direccion, $Telefono, $Contacto_Empresa, $Teleofno_Contacto);
+        $datos = $proveedores->actualizar($idProveedores, $Nombre_Empresa, $Direccion, $Telefono, $Contacto_Empresa, $Telefono_Contacto);
         echo json_encode($datos);
 
     break;

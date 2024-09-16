@@ -3,6 +3,15 @@ require_once('../config/config.php');
 
 class Cliente{
 
+    public function buscar($textp) // select * from clientes
+    {
+        $con = new ClaseConectar();
+        $con = $con->ProcedimientoParaConectar();
+        $cadena = "SELECT * FROM `cliente` where nombres='$textp'";
+        $datos = mysqli_query($con, $cadena);
+        $con->close();
+        return $datos;
+    }
     public function todos()  //Select* from clientes
     {
         $con =new ClaseConectar();

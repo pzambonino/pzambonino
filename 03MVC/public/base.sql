@@ -182,6 +182,34 @@ CREATE TABLE IF NOT EXISTS `Sexto`.`Detalle_Factura` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `Sexto`.`Roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Roles` (
+  `idRoles` INT NOT NULL AUTO_INCREMENT,
+  `Detalle` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idRoles`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Sexto`.`Usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Usuarios` (
+  `idUsuarios` INT NOT NULL AUTO_INCREMENT,
+  `Nombre_Usuarios` VARCHAR(45) NOT NULL,
+  `Contrasenia` VARCHAR(45) NOT NULL,
+  `Estado` INT NOT NULL COMMENT '1 = Activo\n0 = Inactivo',
+  `Usuarioscol` VARCHAR(45) NOT NULL,
+  `Roles_idRoles` INT NOT NULL,
+  INDEX `fk_Usuarios_Roles1_idx` (`Roles_idRoles` ASC) ,
+  CONSTRAINT `fk_Usuarios_Roles1`
+    FOREIGN KEY (`Roles_idRoles`)
+    REFERENCES `Roles` (`idRoles`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

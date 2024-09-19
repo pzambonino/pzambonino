@@ -1,4 +1,4 @@
-export interface IConferencia {
+export interface IConferencias {
   idConferencias: number;
   nombre: string;
   fecha: string;

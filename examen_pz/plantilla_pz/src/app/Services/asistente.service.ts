@@ -54,7 +54,7 @@ export class AsistenteService {
     });
 
     // Realizar la solicitud POST
-    return this.lector.post<string>(this.apiurl + 'insertar', formData).pipe(
+    return this.lector.post<string>(this.apiurl + 'actualizar', formData).pipe(
         tap(response => {
             // Agregar un console.log para verificar la respuesta del servidor
             console.log('Respuesta del servidor:', response);

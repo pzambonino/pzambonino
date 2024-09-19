@@ -62,7 +62,7 @@ class Conferencia{
         try {
             $con = new ClaseConectar();
             $con = $con->ProcedimientoParaConectar();
-            $cadena = "DELETE FROM `conferencia` WHERE `idCoferencias`= $idConferencias";
+            $cadena = "DELETE FROM `conferencia` WHERE `idConferencias`= $idConferencias";
             if (mysqli_query(mysql: $con, query: $cadena)) {
                 return "ok";
             } else {

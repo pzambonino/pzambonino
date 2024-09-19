@@ -80,11 +80,11 @@ export const NavigationItems: NavigationItem[] = [
         icon: 'font-size'
       },
       {
-        id: 'color',
-        title: 'Colors',
+        id: 'conferencias',
+        title: 'conferencias',
         type: 'item',
         classes: 'nav-item',
-        url: '/color',
+        url: '/conferencias',
         icon: 'bg-colors'
       },
       {

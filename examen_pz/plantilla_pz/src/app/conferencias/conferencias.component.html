@@ -1,1 +1,43 @@
-<p>conferencias works!</p>
+<div class="row">
+    <div class="col-sm-12">
+      <app-card cardTitle="Lista de conferencias" blockClass="pc-component">
+        <div class="col-md-12 col-xl-8">
+          <h5 class="mb-3">
+            <a href="nuevoconferencias" class="btn btn-outline-dark">Nuevo conferencias</a>
+          </h5>
+          <div class="card tbl-card">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>nombre</th>
+                    <th>fecha</th>
+                    <th class="text-end">ubicacion</th>
+                    <th class="text-end">descripcion</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (conferencias of listaConferencias; track $index) {
+                    <tr>
+                      <td>{{ $index + 1 }}</td>
+                      <td>{{ conferencias.nombre }}</td>
+                      <td>{{ conferencias.fecha }}</td>
+                      <td>{{ conferencias.ubicacion }}</td>
+                      <td>{{ conferencias.descripcion }}</td>
+  
+                      <td>
+                        <button type="button" class="btn btn-outline-success" [routerLink]="['/editarconferencia/', conferencias.idConferencias]">
+                          Editar
+                        </button>
+                        <button (click)="eliminar(conferencias.idConferencias)" type="button" class="btn btn-outline-danger">Eliminar</button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </app-card>

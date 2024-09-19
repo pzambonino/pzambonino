@@ -1,32 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { RouterLink } from '@angular/router';
+import { IConferencias } from '../Interfaces/iconferencia';
+import { ConferenciaService } from '../Services/conferencia.service';
 
 @Component({
   selector: 'app-conferencias',
   standalone: true,
-  imports: [],
+  imports: [SharedModule, RouterLink],
   templateUrl: './conferencias.component.html',
-  styleUrl: './conferencias.component.scss'
+  styleUrl: './conferencias.component.css'
 })
 
-export class ConferenciasComponent implements //OnInit { 
-/*
-    title = 'Lista de conferencias';
+export class ConferenciasComponent implements OnInit { 
+
+    title = 'Lista de Conferencias';
   
-    listaAsistente: Iconferencia[] = [];
+    listaConferencias: IConferencias[] = [];
     constructor(private ServicioConferencia: ConferenciaService) {}
     ngOnInit() : void {
       this.cargatabla();
     }
   
     cargatabla() {
-      this.ServicioAsistente.todos().subscribe((data) => {
-        this.listaAsistente = data;
+      this.ServicioConferencia.todos().subscribe((data) => {
+        this.listaConferencias = data;
       });
     }
-    eliminar(idAsistentes: number) {
-      this.ServicioAsistente.eliminar(idAsistentes).subscribe((data) => {
+    eliminar(idConferencias: number) {
+      this.ServicioConferencia.eliminar(idConferencias).subscribe((data) => {
         this.cargatabla();
       });
-    }*/
+    }
 
 }

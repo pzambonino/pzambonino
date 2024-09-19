@@ -7,6 +7,8 @@ import { AdminComponent } from './theme/layouts/admin-layout/admin-layout.compon
 import { GuestComponent } from './theme/layouts/guest/guest.component';
 import { AsistenteComponent } from './asistente/asistente.component';
 import { NuevoasistenteComponent } from './asistente/nuevoasistente/nuevoasistente.component';
+import { NuevaconferenciaComponent } from './conferencias/nuevaconferencia/nuevaconferencia.component';
+import { ConferenciasComponent } from './conferencias/conferencias.component';
 
 const routes: Routes = [
   {
@@ -45,7 +47,19 @@ const routes: Routes = [
       {
         path: 'editarasistente/:id',
         loadComponent: () => import('./asistente/nuevoasistente/nuevoasistente.component').then((m) => m.NuevoasistenteComponent)
-      }
+      },
+      {
+        path: 'conferencias',
+        loadComponent: () => import('./conferencias/conferencias.component').then((m) => m.ConferenciasComponent)
+      },
+      {
+        path: 'nuevaconferencia',
+        loadComponent: () => import('./conferencias/nuevaconferencia/nuevaconferencia.component').then((m) => m.NuevaconferenciaComponent)
+      },
+      {
+        path: 'editarconferencia/:id',
+        loadComponent: () => import('./conferencias/nuevaconferencia/nuevaconferencia.component').then((m) => m.NuevaconferenciaComponent)
+      },
 
     ]
   },
